@@ -1,0 +1,27 @@
+<h2 class="container text-center mt-5">Listado de productos de todos los vendedores</h2>
+<table class="table table-striped mt-5 container">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th>Comprar</th>
+      <th>Estado</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of productos" >
+      <th>{{producto.id}}</th>
+      <td>{{producto.nombre}}</td>
+      <td>{{producto.precio}}</td>
+      <td *ngIf="!producto.estado"><button disabled (click)="comprarProducto(producto)" class="btn btn-info">Vendido</button></td>
+      <td *ngIf="producto.estado"><button (click)="comprarProducto(producto)" class="btn btn-info">Comprar</button></td>
+      <td *ngIf="producto.estado">Disponible</td>
+      <td *ngIf="!producto.estado">Vendido</td>
+
+
+    </tr>
+
+  </tbody>
+</table>

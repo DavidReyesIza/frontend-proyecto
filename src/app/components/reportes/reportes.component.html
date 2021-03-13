@@ -1,0 +1,91 @@
+<div class="cont">
+
+  <h1 class="text-center">Reportes</h1>
+<div class="row d-flex justify-content-around mt-5" >
+  <div class="">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="assets/img/ventas.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Total de ventas por producto</h5>
+      </div>
+      <table class="table" *ngIf="!!productosVendidos else elseBlock">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio de venta</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productosVendidos">
+            <td>{{producto.id}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>Q.{{producto.precio}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+        <ng-template #elseBlock>
+          <div class="alert alert-primary" role="alert">
+            Aun no se han registrado ventas
+          </div>
+        </ng-template>
+
+    </div>
+  </div>
+
+
+  <div class="">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="assets/img/globales.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Total de ventas global</h5>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Total de ventas Global</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td class="text-center">{{contadorProductos}} productos</td>
+
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="assets/img/cohete.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Promedio de Precios Manejados</h5>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Promedio de los precios manejados</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+            <td class="text-center">Q.{{PromedioGeneral}}</td>
+
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+<button (click)="verValor();">probar</button>

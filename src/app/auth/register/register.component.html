@@ -1,0 +1,31 @@
+<div class="content">
+
+  <form (ngSubmit)="login()"
+  autocomplete="off"
+  [formGroup]="loginForm"
+  >
+    <h1>Registro</h1>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Correo</label>
+      <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <span class="alert alert-danger mensajes" *ngIf=" getError('email')">Email requerido o invalido</span>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+
+    <span class="alert alert-danger mensajes" *ngIf=" getError('password')">Contraseña Requerida</span>
+
+    <button
+    [disabled]="loginForm.invalid"
+    type="submit" class="btn btn-primary">Crear Cuenta</button>
+    <span class="crear-cuenta"><a routerLink="/login">Iniciar Sesion</a></span>
+
+
+
+
+  </form>
+
+  </div>
